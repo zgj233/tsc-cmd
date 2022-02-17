@@ -1,0 +1,17 @@
+{
+  "name": "typescript-study",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tsConfig.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"tsc -w\"  \"nodemon output/print.js\" "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "nodemon": "^2.0.15"
+  }
+}
