@@ -1,5 +1,5 @@
 {
-  "name": "typescript-study",
+  "name": "tsc-cmd",
   "version": "1.0.0",
   "description": "",
   "main": "tsConfig.js",
@@ -7,10 +7,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"tsc -w\"  \"nodemon output/print.js\" "
   },
+  "bin": {
+    "my-tsc": "bin/my-tsc/index.js"
+  },
   "keywords": [],
-  "author": "",
+  "author": "sta",
   "license": "ISC",
   "devDependencies": {
+    "commander": "^9.0.0",
     "concurrently": "^7.0.0",
     "nodemon": "^2.0.15"
   }
