@@ -1,16 +1,54 @@
 #!/usr/bin/env node
 const { Command } = require('commander');
 const program = new Command();
+const { exec } = require('child_process');
+const fs = require('fs');
+/*
+* 获取文件信息
+* */
+const getFileStats = (fileName)=>{
+  return new Promise((resolve, reject) => {
+    fs.stat(fileName, (err, stats)=> {
+      if (err) return reject(err);
+      if (!stats.isFile()) return reject('这不是一个文件')
+      resolve(stats)
+    })
+  })
+}
 
+
+const watchFile = fileName => {
+  const a = fileName.split('.');
+  if (a[1] !== 'ts'){
+    console.log('这不是.ts文件');
+    return;
+  }
+
+  console.log(`开始监控：` + fileName)
+  const newFile = a[0] + '.js';
+  const child = exec(`concurrently "tsc -w ${fileName}" "nodemon ${newFile}"`)
+  child.stdout.on('data',  data => {
+    console.log(data)
+  })
+}
 
 program
-  .command('init <templateName> [envs...]') // 创建命令 <> 必填参数 [] 选填参数 ... 可接收多个
-  .alias('i') // 命令取别名
-  .description('this is a init command') // 命令的描述
-  .option('-j, --jade', 'this is a jade option') // 该命令相关的选项配置
-  .action((templateName, envs, cmdObj) => {
-    console.log(templateName);
-    console.log(envs); // 如果有命令两个参数 第二个参数就是该变量。 如果没有第二个参数 且包含 option 选项配置的时候 第二个参数就是 command 本身
-  });
+  .option('-w, --watch <fileName>', '监控.tsc 文件,每当修改后,自动编译运行')
+  .parse(process.argv)
 
-program.parse(process.argv);
+const options = program.opts();
+
+if (options.watch){
+  const fileName = options.watch;
+  run(fileName)
+};
+
+
+async function run(fileName){
+  try {
+    await getFileStats(fileName);
+    watchFile(fileName)
+  }catch (err){
+    console.log(err)
+  }
+}
