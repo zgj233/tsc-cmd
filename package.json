@@ -1,21 +1,18 @@
 {
   "name": "tsc-cmd",
   "version": "1.0.0",
-  "description": "",
-  "main": "tsConfig.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"tsc -w\"  \"nodemon output/print.js\" "
-  },
+  "description": "A terminal that monitors TypeScript files, and compiles automatically when it changes",
   "bin": {
-    "my-tsc": "bin/my-tsc/index.js"
+    "tsc-cmd": "bin/index.js"
   },
-  "keywords": [],
-  "author": "sta",
-  "license": "ISC",
+  "keywords": [
+    "termianl",
+    "TypeScript",
+    "AutoExec"
+  ],
+  "author": "zgj233",
+  "license": "MIT",
   "devDependencies": {
-    "commander": "^9.0.0",
-    "concurrently": "^7.0.0",
-    "nodemon": "^2.0.15"
+    "commander": "^9.0.0"
   }
 }
