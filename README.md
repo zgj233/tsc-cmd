@@ -1,6 +1,14 @@
 ## tsc-cmd ##
-[English](https://github.com/zgj233/tsc-cmd/master/README.en.md)
+[English](https://github.com/zgj233/tsc-cmd/blob/master/README.en.md)
 > 一个监视TypeScript文件的终端，当文件发生变化时自动编译
+
+```cmd
+//安装
+npm install tsc-cmd -g
+
+//使用
+tsc-cmd -w ../some_Dir/some_file.ts
+```
 
 ### why？ ###
 光有 typescript 命令行工具，只能运行 ts文件，但是无法在ts 文件修改之后实时返回结果。

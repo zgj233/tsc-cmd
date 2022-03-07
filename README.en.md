@@ -1,6 +1,14 @@
 ## tsc-cmd ##
-[中文](https://github.com/zgj233/tsc-cmd/master/README.md)
+[中文](https://github.com/zgj233/tsc-cmd/blob/master/README.md)
 > A terminal that monitors TypeScript files, and compiles automatically when it changes.
+
+```cmd
+//To install
+npm install tsc-cmd -g
+
+//To use
+tsc-cmd -w ../some_Dir/some_file.ts
+```
 
 ### why？ ###
 With typescript command-line tools, you can only run TS files, but can't return results in real time after a TS file has been modified.
