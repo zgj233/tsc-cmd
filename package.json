@@ -1,6 +1,6 @@
 {
   "name": "tsc-cmd",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A terminal that monitors TypeScript files, and compiles automatically when it changes",
   "bin": {
     "tsc-cmd": "bin/index.js"
